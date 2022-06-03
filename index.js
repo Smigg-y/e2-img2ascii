@@ -16,14 +16,15 @@ app.listen(port);
 
 app.get('/image', async function(req, res) {
     let image = req.query.url || null;
-
+    let width = req.query.width || 30;
+    
     if(image === null) {
         res.json({
             'success': false,
             'text': 'invalid url'
         });
     } else {
-        const result = await braillefy(image, 30, asciiOpts);
+        const result = await braillefy(image, width, asciiOpts);
         res.json({
             'success': true,
             'text': result

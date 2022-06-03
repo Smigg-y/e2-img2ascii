@@ -23,7 +23,7 @@ app.get('/image', async function(req, res) {
             'text': 'invalid url'
         });
     } else {
-        const result = await braillefy(image, 256, asciiOpts);
+        const result = await braillefy(image, 30, asciiOpts);
         res.json({
             'success': true,
             'text': result
